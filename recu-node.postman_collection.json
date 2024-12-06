@@ -1,0 +1,150 @@
+{
+	"info": {
+		"_postman_id": "b3fb5b52-20e1-47cc-af91-586e3261be3e",
+		"name": "recu-node",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "40073207"
+	},
+	"item": [
+		{
+			"name": "preguntas",
+			"item": [
+				{
+					"name": "get azar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3100/preguntas/azar"
+					},
+					"response": []
+				},
+				{
+					"name": "get preg filtros",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3100/preguntas?palabraClave=Cuál&ordenarPorFecha=TRUE",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3100",
+							"path": [
+								"preguntas"
+							],
+							"query": [
+								{
+									"key": "palabraClave",
+									"value": "Cuál"
+								},
+								{
+									"key": "ordenarPorFecha",
+									"value": "TRUE"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete pregus",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:3100/preguntas/2"
+					},
+					"response": []
+				},
+				{
+					"name": "post pregus",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"pregunta\": \"¿Cuál es la capital de Francia?\",\r\n    \"opcion1\": \"Madrid\",\r\n    \"opcion2\": \"París\",\r\n    \"opcion3\": \"Roma\",\r\n    \"opcion4\": \"Berlín\",\r\n    \"respuestaCorrecta\": \"París\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3100/preguntas"
+					},
+					"response": []
+				},
+				{
+					"name": "update pregus",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"respuestaCorrecta\": \"Marte\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3100/preguntas/3"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "resps",
+			"item": [
+				{
+					"name": "get respuesta",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3100/respuestas?preguntaId=1&userId=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3100",
+							"path": [
+								"respuestas"
+							],
+							"query": [
+								{
+									"key": "preguntaId",
+									"value": "1"
+								},
+								{
+									"key": "userId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post respuesta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"preguntaId\": 1,\r\n    \"respuestaSeleccionada\": \"París\",\r\n    \"userId\": 1\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3100/respuestas"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
